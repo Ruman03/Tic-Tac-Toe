@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruman Asif Game</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    
+    <h1 class="myH1">Tic Tac Toe</h1>
+    <div onclick="musicOff()" class="musicContainer">
+        <img class="musicSvg" src="music.png" alt="music svg">
+        <span class="cross">X</span>
+    </div>
+
+    <div class="gamecontainer">
+        <div class="container">
+            <div class="line"></div>
+            <div class="box bt-0 bl-0"><span class="boxText"></span></div>
+            <div class="box bt-0"><span class="boxText"></span></div>
+            <div class="box bt-0 br-0"><span class="boxText"></span></div>
+            <div class="box bl-0"><span class="boxText"></span></div>
+            <div class="box"><span class="boxText"></span></div>
+            <div class="box br-0"><span class="boxText"></span></div>
+            <div class="box bl-0 bb-0"><span class="boxText"></span></div>
+            <div class="box bb-0"><span class="boxText"></span></div>
+            <div class="box br-0 bb-0"><span class="boxText"></span></div>
+        </div>
+        <div class="gameInfo">
+            <h2 class="myH2">Welcome to this  Game!</h2>
+            <div class="score">
+                    <h3 >Player X:
+                        <span id="X">0</span>
+                    </h3>
+                    <h3 >Player O:
+                        <span id="O">0</span>
+                    </h3>
+                
+            </div>
+            <div class="myDiv">
+                <span class="turn">Turn for X</span>
+                <button id="reset">Reset</button>
+            </div>
+            <img class="gif" src="excited.gif" alt="Gif">
+        </div>
+    </div>
+    
+    <script src="/script.js" defer></script>
+</body>
+</html>

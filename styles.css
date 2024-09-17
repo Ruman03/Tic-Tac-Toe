@@ -1,0 +1,262 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;  
+    overflow: hidden;  
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: hsl(0, 0%, 95%);
+    color: white;
+    text-shadow: 0 0 10px black;
+}
+
+.myH1{
+    text-align: center;
+    padding: 4px;
+    background-color: hsl(234, 90%, 60%);
+    width: 100%;
+    color: white;
+}
+
+.gamecontainer{
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    padding: 0px 12px;
+    gap: 12px;
+    height: 100%;
+    background-color: hsl(234, 90%, 70%);
+}
+
+.container{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 6rem);    
+    grid-template-rows: repeat(3, 6rem);  
+    order: 1;  
+}
+
+.box{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    cursor: pointer;
+}
+
+.boxText{
+    width: 100%;
+    text-align: center;
+    user-select: none;
+}
+
+/* .box:hover{
+    background-color: hsl(203, 100%, 50%);
+} */
+
+.box:active{
+    background-color: hsl(203, 100%, 60%);
+}
+
+.bt-0{
+    border-top: none;
+}
+
+.br-0{
+    border-right: none;
+}
+
+.bb-0{
+    border-bottom: none;
+}
+
+.bl-0{
+    border-left: none;
+}
+
+.gameInfo{
+   text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 310px;
+    position: relative;
+}
+
+.myDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 12px;
+    width: 100%;
+}
+
+.myH2{
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.turn{
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 12px;
+    
+}
+
+#reset{
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: hsl(240, 82%, 49%);
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+#reset:hover{
+    background-color: hsl(240, 82%, 42%);
+}
+#reset:active{
+    background-color: hsl(240, 82%, 30%);
+}
+
+.line{
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: rgb(255, 0, 0);
+    top: 40px;
+    left: 0;
+    transform: rotate(0deg);
+    transform-origin: 0 0;
+    z-index: 1;
+    display: none;
+    animation: lineMove 0.7s ease;
+    user-select: none;
+}
+
+.gif{
+    position: absolute;
+    top: 80px;
+    right: 0;
+    margin-top: 24px;
+    width: 100px;
+    display: none;
+    transform: translateX(-20px);
+    user-select: none;
+}
+
+.musicContainer{
+    position: absolute;
+    background-color: hsl(0, 0%, 93%);
+    padding: 4px 10px;
+    border-radius: 12px;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.589);
+}
+
+.musicContainer:hover{
+    background-color: hsl(0, 0%, 85%);
+}
+.musicContainer:active{
+    background-color: hsl(0, 0%, 75%);
+}
+
+.cross{
+    position: absolute;
+    color: rgb(228, 0, 0);
+    font-weight: bolder;
+    text-shadow: none;
+    font-size: 28px;
+    top: 0px;
+    left: 12px;
+    display: none;
+    user-select: none;
+}
+
+.score{
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    font-size: 18px;
+    text-shadow: 0 0 2px black;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+    
+}
+
+.crossActive{
+    display: block;
+    animation: fade 0.3s ease;
+}
+
+
+.musicSvg{
+    width: 20px;
+    display: inline;
+}
+
+@keyframes lineMove{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 100%;
+    }
+    
+}
+
+@media (min-width:640px){
+    .gamecontainer{
+        flex-direction: row;
+        /* justify-content: center; */
+        align-items: center;
+    }
+    
+}
+
+@media (min-width:1024px){
+    .myH2{
+        font-size: 3rem;
+    }
+
+    .gamecontainer{
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+    }
+    
+    .gameInfo{
+        max-width: 800px;
+        padding: 12px;
+    }
+
+}
+
+
