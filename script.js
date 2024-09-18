@@ -16,14 +16,12 @@ const gif = document.querySelector('.gif');
 
 //Node List of Boxes
 const boxes = document.querySelectorAll('.box');
-console.log(boxes);
 // Turn
 let turn = 'X';
 // Turn Info
 const turnInfo = document.querySelector('.turn');
 // Box Text Node List
 const boxText = document.querySelectorAll('.boxText')
-console.log(boxText);
 //Line Display
 const line = document.querySelector('.line');
 
@@ -59,6 +57,44 @@ const winLogic = [
     [6,4,2,51,241,135],
 ];
 
+// Play with Computer
+const playWithComputer = document.getElementById('computer');
+
+// Computer Turn Function
+const playerIndex = [];
+const computerIndex = [];
+let randomIndex;
+function computerTurn(index) {
+    playerIndex.push(index);
+    if(playerIndex.length!==5){
+
+        do {
+            randomIndex = Math.floor(Math.random() * 9);
+        } while (playerIndex.includes(randomIndex) || computerIndex.includes(randomIndex));
+    }
+    
+    computerIndex.push(randomIndex);
+
+    console.log(`Player Index after Loop`,playerIndex);
+    console.log(`Computer Index after Loop`,computerIndex);
+
+    if (turn === 'O' && boxText[randomIndex].textContent === '') {
+        boxText[randomIndex].textContent = turn;
+        ting.play();
+        
+        // Check if the computer won after making a move
+        let isWon = winGame();
+        if (isWon) {
+            turnInfo.textContent = `${turn} Won!`;
+            gameActive = false;
+        } else {
+            turn = changeTurn();
+            changeTurnInfo();
+        }
+    }
+}
+
+
 // Win Function
 function winGame(){
    let Won;
@@ -66,6 +102,7 @@ function winGame(){
     if(boxText[c[0]].textContent===turn && boxText[c[1]].textContent===turn && boxText[c[2]].textContent=== turn && boxText[c[0]].textContent!=='' ){
         
         Won = true;
+        console.log(`Game won: ${Won}`);
         if(turn==='X'){
             playerXScore++;
             document.getElementById('X').textContent = playerXScore;
@@ -74,36 +111,58 @@ function winGame(){
             playerOScore++;
             document.getElementById('O').textContent = playerOScore;
         }
+
         gameOver.play();
        gif.style.display='block';
+
         console.log(c);
         line.style.display='block';
         line.style.top = `${c[3]}px`
         line.style.left = `${c[4]}px`
         line.style.transform = `rotate(${c[5]}deg)`
     }
-   
-    
-    
 })
 return Won;
+}
 
+//Draw GAME
+function drawGame(){
+    let draw = true;
+    boxText.forEach(box=>{
+        if(box.textContent===''){
+            draw = false;
+        }
+    })
+    if(draw){
+        turnInfo.textContent = `It's a Draw!`;
+        gameActive = false;
+    }
+    return draw;
 }
 
 // Event Listner to Boxes
 
-boxes.forEach(box=>{
+boxes.forEach((box, index)=>{
     box.addEventListener('click', ()=>{
         
         if(gameActive && box.firstChild.textContent===''){
-            box.firstChild.textContent=turn;
+            
+            if(playWithComputer.checked && turn==='X'){
+                box.firstChild.textContent=turn;
+            }
+            else{
+                box.firstChild.textContent=turn;
+               
+            }
+            
             if(musicPlay){
                 music.play();
                 musicPlay = true;
             }
+
             ting.play();
+            console.log(`Turn before the win function: ${turn}`);
             let isWon = winGame();
-            console.log(isWon);
             if(isWon){
                 turnInfo.textContent=`${turn} Won!`;
                 gameActive=false;
@@ -111,11 +170,20 @@ boxes.forEach(box=>{
             else{
                 turn = changeTurn();
                 changeTurnInfo();
+                
+            }
+            console.log(`Turn after the win function and before computer function: ${turn}`);
+            
+            if(playWithComputer.checked){
+                computerTurn(index);
+                console.log(`Turn after the computer function: ${turn}`);
             }
             
+            drawGame();
         }
     })
 })
+
 
 
 
@@ -127,6 +195,8 @@ reset.addEventListener('click', ()=>{
         gameActive=true;
         line.style.display='none';
         gif.style.display='none';
+        playerIndex.length = 0;
+        computerIndex.length = 0;
     })
 });
 

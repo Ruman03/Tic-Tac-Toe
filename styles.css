@@ -103,11 +103,7 @@ body{
     width: 100%;
 }
 
-.myH2{
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 12px;
-}
+
 
 .turn{
     font-size: 2rem;
@@ -242,9 +238,6 @@ body{
 }
 
 @media (min-width:1024px){
-    .myH2{
-        font-size: 3rem;
-    }
 
     .gamecontainer{
         flex-direction: column;
