@@ -266,11 +266,16 @@ body{
 
 @media (orientation: landscape) {
 
+    .gamecontainer{
+        padding: 0;
+    }
+    
     .myH1{
         display: none;
     }
     .container{
-        transform: scale(.8);
+        transform: scale(.8) translateY(-20px);
+        
     }
 }
 
