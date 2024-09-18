@@ -269,5 +269,8 @@ body{
     .myH1{
         display: none;
     }
+    .container{
+        transform: scale(.8);
+    }
 }
 
