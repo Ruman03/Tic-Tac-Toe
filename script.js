@@ -175,7 +175,7 @@ boxes.forEach((box, index)=>{
             console.log(`Turn after the win function and before computer function: ${turn}`);
             
             if(playWithComputer.checked){
-                computerTurn(index);
+                setTimeout(computerTurn(index),1000);
                 console.log(`Turn after the computer function: ${turn}`);
             }
             
