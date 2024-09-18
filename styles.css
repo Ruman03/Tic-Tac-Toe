@@ -6,16 +6,12 @@
     overflow: hidden;  
 }
 
-html{
-    height: 100%;
-}
-
 body{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 100vh;
     background-color: hsl(0, 0%, 95%);
     color: white;
     text-shadow: 0 0 10px black;
@@ -23,18 +19,13 @@ body{
 
 .myH1{
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 4px;
     background-color: hsl(234, 90%, 60%);
     width: 100%;
     color: white;
-    height: 100%
 }
 
 .gamecontainer{
-   
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -42,9 +33,8 @@ body{
     width: 100%;
     padding: 0px 12px;
     gap: 12px;
-    min-height: 89%;
+    height: 100%;
     background-color: hsl(234, 90%, 70%);
-    flex-wrap: wrap;
 }
 
 .container{
@@ -274,4 +264,10 @@ body{
 
 }
 
+@media (orientation: landscape) {
+
+    .myH1{
+        display: none;
+    }
+}
 
