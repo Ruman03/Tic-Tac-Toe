@@ -34,9 +34,9 @@ body{
     width: 100%;
     padding: 0px 12px;
     gap: 12px;
-    /* height: 100%; */
-    height: calc(var(--vh, 1vh) * 100);
+    height: -webkit-fill-available;
     background-color: hsl(234, 90%, 70%);
+    flex-wrap: wrap;
 }
 
 .container{

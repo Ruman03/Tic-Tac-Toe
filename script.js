@@ -219,15 +219,3 @@ function musicOff(){
     document.querySelector('.cross').classList.toggle('crossActive');
 }
 
-
-// Game Height Issue
-function setContainerHeight() {
-    const vh = window.innerHeight * 0.01; // Get the correct vh unit
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-}
-
-// Call the function on page load
-setContainerHeight();
-
-// Update the height on window resize
-window.addEventListener('resize', setContainerHeight);
