@@ -75,8 +75,7 @@ function computerTurn(index) {
     
     computerIndex.push(randomIndex);
 
-    console.log(`Player Index after Loop`,playerIndex);
-    console.log(`Computer Index after Loop`,computerIndex);
+   
 
     if (turn === 'O' && boxText[randomIndex].textContent === '') {
         boxText[randomIndex].textContent = turn;
@@ -102,7 +101,6 @@ function winGame(){
     if(boxText[c[0]].textContent===turn && boxText[c[1]].textContent===turn && boxText[c[2]].textContent=== turn && boxText[c[0]].textContent!=='' ){
         
         Won = true;
-        console.log(`Game won: ${Won}`);
         if(turn==='X'){
             playerXScore++;
             document.getElementById('X').textContent = playerXScore;
@@ -115,7 +113,7 @@ function winGame(){
         gameOver.play();
        gif.style.display='block';
 
-        console.log(c);
+       
         line.style.display='block';
         line.style.top = `${c[3]}px`
         line.style.left = `${c[4]}px`
@@ -161,7 +159,7 @@ boxes.forEach((box, index)=>{
             }
 
             ting.play();
-            console.log(`Turn before the win function: ${turn}`);
+            
             let isWon = winGame();
             if(isWon){
                 turnInfo.textContent=`${turn} Won!`;
@@ -172,11 +170,11 @@ boxes.forEach((box, index)=>{
                 changeTurnInfo();
                 
             }
-            console.log(`Turn after the win function and before computer function: ${turn}`);
+            
             
             if(playWithComputer.checked){
                 setTimeout(computerTurn(index),1000);
-                console.log(`Turn after the computer function: ${turn}`);
+               
             }
             
             drawGame();
